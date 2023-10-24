@@ -1,0 +1,40 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0px;
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+    }
+}
+
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 8px;
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
+
+    :focus {
+        border: 3px solid;
+        outline: none;
+    }
+}
+
+.form-button {
+    border: 1px solid;
+    border-radius: 18px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 1em;
+    @media screen and (max-width: 500px) {
+        margin-left: 0;
+        margin-top: 1em;
+        width: 100%;
+    }
+}
+
