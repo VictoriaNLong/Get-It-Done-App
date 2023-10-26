@@ -1,8 +1,17 @@
 .App {
-background-color: rgb(51, 1, 20);
+background-color: #FFCDB2;
 margin: 0;
 padding: 50px;
 height: 100vh;
 font-size: 1.5rem;
 font-weight: 500;
+}
+
+.app-body {
+display: flex;
+align-content: center;
+justify-content: space-evenly;
+@media screen and (max-width: 600px) {
+    flex-direction: column;
+}
 }

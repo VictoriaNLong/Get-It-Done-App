@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import '../Style/styles.css';
 
 function Form({input, setInput}) {
   return (
@@ -10,7 +10,7 @@ function Form({input, setInput}) {
       type="text" 
       />
       <button className="form-button" type="submit">
-        Add
+        ADD
       </button>
     </div>
   );
