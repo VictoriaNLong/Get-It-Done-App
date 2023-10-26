@@ -1,17 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,700;1,300&display=swap');
+
+h1 {
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  background-color: #6D6875;
+  color: transparent;
+  text-shadow: 0px 0px 3px #FFCDB2;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.header-desc {
+    font-family: "Raleway", sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #6D6875;
+    margin-bottom: 10px;
+}
+
 .App {
-background-color: #FFCDB2;
-margin: 0;
-padding: 50px;
-height: 100vh;
-font-size: 1.5rem;
-font-weight: 500;
+  margin: 0;
+  padding: 50px;
+  height: 100vh;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .app-body {
-display: flex;
-align-content: center;
-justify-content: space-evenly;
-@media screen and (max-width: 600px) {
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  @media screen and (max-width: 600px) {
     flex-direction: column;
+  }
 }
+
+.top-border {
+    height: 5px;
+    background: #6D6875;
+    margin-bottom: 1em;
 }

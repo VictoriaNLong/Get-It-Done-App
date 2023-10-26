@@ -6,8 +6,11 @@ import Weekly from './components/Weekly';
 function App() {
   return (
     <div className="App">
-      <h1>Get it done</h1>
+      <h1>GET IT DONE</h1>
+      <h2 className='header-desc'>YOUR TASK MANAGEMENT COMPANION</h2>
+      <div className='top-border'/>
       <div className='app-body'><Daily /><Weekly /><Monthly /></div>
+      <div className='bottom-border'/>
     </div>
   );
 }
