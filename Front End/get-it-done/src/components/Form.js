@@ -1,5 +1,5 @@
 import React from "react";
-import '../Style/styles.css';
+import './styles.css'
 
 function Form({input, setInput}) {
   return (

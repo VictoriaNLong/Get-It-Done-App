@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import '../Style/styles.css'
-import Form from '../Form'
+import './styles.css'
+import Form from './Form'
 
 function Weekly() {
     const [input, setInput] = useState('')
