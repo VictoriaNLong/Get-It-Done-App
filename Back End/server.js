@@ -5,8 +5,10 @@ const Cors = require('cors')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser');
-dotenv.config()
+const allRoutes = require('./routes/index')
 
+
+dotenv.config()
 
 //Connections
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
@@ -20,23 +22,19 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
   app.use(cookieParser())
 
 app.listen(process.env.PORT, () => {
-    console.log(`running on ${PORT}`)
-})
-.catch((er) => {
-  console.log(err)
+    console.log(`running`)
 })
 
 //Endpoints
-
+app.use('/api', allRoutes)
 
 //Get list
-app.get('/todos', getTodos)
+
 
 //Create todo
-app.post('/todos', createTodos)
+
 
 //Update todo
-app.put('/todos/:id', updateTodos)
+
 
 //Delete tdo
-app.delete('/todos/id', deleteTodos)
