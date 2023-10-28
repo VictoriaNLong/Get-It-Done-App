@@ -16,7 +16,8 @@ const createTask = async (req, res, next) => {
 
 const getTasks = async (req, res, next) => {
     try{
-        
+        const tasks = await Task.find({})
+        return res.status(200).json(tasks)
     }catch(err){
         return next(err)
     }

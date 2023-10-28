@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const taskSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -12,7 +11,7 @@ const taskSchema = new mongoose.Schema({
         default: false,
     },
     user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "User",
         required: true,
     },
