@@ -53,4 +53,24 @@ const login = async(req, res) => {
       }
 }
 
-module.exports = {register, login}
+const logout = (req, res) => {
+    res.clearCookie('access_token')
+    return res.status(200).json({message: 'Logged out'})
+
+}
+
+const isLoggedIn = (req, res) => {
+const token = req.cookies.access_token
+if(!token){
+    return res.json(false)
+}
+return jwt.verify(token, process.env.JWT_SECRET, (err) => {
+    if(err){
+        return res.json(false)
+    }else{
+        return res.json(true)
+    }
+})
+}
+
+module.exports = {register, login, logout, isLoggedIn}
