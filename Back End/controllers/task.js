@@ -51,9 +51,10 @@ const updateTask = async (req, res, next) => {
 
 const deleteTask = async (req, res, next) => {
     try{
-        const task = await Task.findById(req.params.taskId).exec()
-        if (!task) return next(createError({ status: 404, message: 'Task not found' }));
-
+        const task = await Task.findById(req.params.taskId)
+        if (!task) {
+            return next(createError({ status: 404, message: 'Task not found' }));
+    }
         await Task.findByIdAndDelete(req.params.TaskId)
         return res.status(200).json('Task deleted')
     }catch(err){

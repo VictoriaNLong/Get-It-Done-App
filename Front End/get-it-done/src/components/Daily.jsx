@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import './styles.css'
-import Form from './Form'
+import TaskList from './TaskList'
 
 function Daily() {
     const [input, setInput] = useState('')
     console.log(input, "input")
     return (
         <div className='Main'>
-            <h2>DAILY</h2>
-                <Form input={input} setInput={setInput}/>
-                {/* Todo List */}
-                {/* Key */}
-                {/* Author */}
+            <h2>TASKS</h2>
+            <TaskList />
+
            
         </div>
     )

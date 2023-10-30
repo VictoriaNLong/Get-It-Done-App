@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 import Daily from '../components/Daily';
-import Monthly from '../components/Monthly';
 import TopBar from '../components/TopBar';
-import Weekly from '../components/Weekly';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,7 +45,7 @@ function Todo() {
         <h3>Lets get some work done</h3>
       </div>
       
-      <div className='Todo-body'><Daily /><Weekly /><Monthly /></div>
+      <div className='Todo-body'><Daily /></div>
     </div>
   );
 }
