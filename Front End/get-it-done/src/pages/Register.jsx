@@ -1,34 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useRef } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
 import TopBar from '../components/TopBar';
 import './pages.css'
+import { useNavigate } from "react-router";
 
 
 const Register = () => {
-    const username = useRef();
-    const email = useRef();
-    const password = useRef();
-    const navigate = useNavigate();
-
-    const handleClick = async (e) => {
-        e.preventDefault();
-   
-          const user = {
-            username: username.current.value,
-            email: email.current.value,
-            password: password.current.value,
-          };
-          try {
-            await axios.post("/auth/register", user);
-            navigate("/login");
-          } catch (err) {
-            console.log(err);
-          }
-        
-      };
+  const navigate = useNavigate();
+  const register = async (e) => {
+    e.preventDefault()
+    const user = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+    }
+    try{
+      await axios.post("/auth/register", user)
+      navigate('/login')
+    }catch(err){
+    console.log(err)
+    }
+  }
 
     return (
       <div className='top-bar'>
@@ -36,28 +29,31 @@ const Register = () => {
         <div className='form-container'>
             <div className='form-wrapper'>
                 <h2 className='title'>REGISTER</h2>
-                <form className='reg-form' onSubmit={handleClick}>
+                <form className='reg-form' onSubmit={register}>
+                  <label htmlFor="name">
                     <input
-                        className='input-name'
                         type="text"
-                        ref={username}
+                        name='name'
                         placeholder='USERNAME'
                         required
                     />
+                    </label>
+                    <label htmlFor="email">
                     <input
-                        className='input-email'
                         type="email"
-                        ref={email}
+                        name='email'
                         placeholder='EMAIL'
                         required
                     />
+                    </label>
+                    <label htmlFor="password">
                     <input
-                        className='input-password'
                         type="password"
-                        ref={password}
+                        name='password'
                         placeholder='******'
                         required
                     />
+                    </label>
                     <button className='signup-button' type='submit'>SIGN UP</button>
                 </form>
 

@@ -1,24 +1,26 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { useRef } from "react";
-import { loginCall } from "../context/BackEndCalls";
-import { AuthContext } from "../context/AuthContext";
+import React from "react";
+import { Link} from "react-router-dom";
+import './pages.css'
 import TopBar from "../components/TopBar";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 const Login = () => {
-  const email = useRef();
-  const password = useRef();
-  const { user, isFetching, dispatch } = useContext(AuthContext);
-
-  const handleClick = (e) => {
+  const navigate = useNavigate();
+  const login = async (e) => {
     e.preventDefault();
-    loginCall(
-      { email: email.current.value, password: password.current.value },
-      dispatch
-    );
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    try {
+      await axios.post("/auth/login", {
+        email,
+        password,
+      });
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+    }
   };
-
-  console.log(user);
 
   return (
     <div className="top-bar">
@@ -26,26 +28,28 @@ const Login = () => {
     <div className="form-container">
       <div className="form-wrapper">
         <h2 className="title">LOGIN</h2>
-        <form onSubmit={handleClick}>
+        <form className="login-form" onSubmit={login}>
+          <label htmlFor="email">
           <input
-            className="input-email"
             type="email"
+            name="email"
             placeholder="EMAIL"
-            ref={email}
             required
           />
+          </label>
+          <label htmlFor="password">
           <input
-            className="input-password"
             type="password"
+            name="password"
             placeholder="******"
-            ref={password}
             required
           />
-          <button className="login-button" type="submit">{isFetching ? "LOGGING IN" : "LOG IN"}</button>
+          </label>
+          <button className="login-button" type="submit">LOG IN</button>
         </form>
 
         <p className="signup-login">
-          You don't have an account? <Link to="/register">Register</Link>
+          Don't have an account? <Link to="/register">Register</Link>
         </p>
       </div>
     </div>

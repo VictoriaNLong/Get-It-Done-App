@@ -1,11 +1,15 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
+const createError = require('../utils/createError')
 
 const register = async(req, res) => {
-    console.log("register")
     if(!req.body.name || !req.body.email || !req.body.password){
-        return res.json('required field name, email, password')
+        return next(
+            createError({
+                message: 'Name, Email, and password required'
+            })
+        )
     }
 
     try{
@@ -17,17 +21,21 @@ const register = async(req, res) => {
             email: req.body.email,
             password: hashedPassword,
         })
-        const user = await newUser.save()
-        return res.status(201).json(user)
+        await newUser.save()
+        return res.status(201).json('Created New User')
     } catch (err) {
-        res.status(500).json(err);
+        return next(err);
       }
     }
 
 const login = async(req, res) => {
-    console.log("login")
     if(!req.body.email || !req.body.password){
-        return res.json('required field email, password')
+        return next(
+            createError({
+              message: 'Email and password are required',
+              statusCode: 400,
+            }),
+          );
     }
     try{
         const user = await User.findOne({email: req.body.email})
@@ -45,9 +53,10 @@ const login = async(req, res) => {
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
             expiresIn: '1d'
         })
-        return res.cookie('access_token', token, {
+        return res
+        .cookie('access_token', token, {
             httpOnly: true
-        }).status(200).json({'message:': "login successful"})
+        }).status(200).json({name: user.name, email: user.email, message: "login successful"})
     }catch (err) {
         res.status(500).json(err);
       }
