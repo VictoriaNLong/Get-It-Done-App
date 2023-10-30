@@ -5,8 +5,8 @@ function TopBar(){
     return (
 
 <div className='top-bar'>
-<h1>GET IT DONE</h1>
-<h2 className='header-desc'>YOUR TASK MANAGEMENT COMPANION</h2>
+<h1>Get It Done</h1>
+<h2 className='header-desc'>Your Task Management Companion</h2>
 <div className='top-border'/>
 </div>
     )

@@ -9,8 +9,9 @@
     border-radius: 15px;
     border: 1px solid #F6BD60;
     padding: 20px 30px;
-    width: 80%;
-    margin: .5em;
+    box-sizing: border-box;
+    width: 100%;
+    margin: .5em 0;
     filter: drop-shadow(2px 5px 2px #F5CAC3);
 }
 

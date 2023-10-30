@@ -28,6 +28,17 @@ form {
 
 }
 
+h3 {
+    align-self: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    color: #F28482;
+    font-style: italic;
+      font-size: 20px;
+}
+
 label {
     width: 100%;
 }
@@ -82,4 +93,35 @@ a:link {
   
 a:hover {
     color: #F6BD60;
+  }
+
+  .Todo {
+    background-color: #faf6f1;
+    margin: 0;
+    height: 100vh;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .todo-body {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .user-info {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .logout-button {
+    position: absolute;
+    z-index: 1;
+    padding-top: 10px;
+
+    @media screen and (max-width: 500px) {
+        padding: 8px 10px;
+    }
   }
