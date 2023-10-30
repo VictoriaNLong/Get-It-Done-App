@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway");
+
+* {
+    background-color: #faf6f1;
+    font-family: "Raleway";
+}
+
+.reg-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.title {
+    align-self: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    background-color: #6D6875;
+    color: transparent;
+    text-shadow: 0px 0px 3px #84A59D;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+
+}
+
+input{
+    background-color: #FFB4A2;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    margin: 5px;
+    padding: 8px;
+    border: 2px solid #F28482;
+    border-radius: 8px;
+    width: 100%;
+    
+}
+
+input:focus {
+    border: 5px solid #F6BD60;
+    outline: none!important;
+}
+
+::placeholder {
+    color: #faf6f1;
+    text-align: center;
+}
+
+.signup-button {
+    align-self: center;
+    background-color: #F28482;
+    color: #ffffff;
+    border: 1px none;
+    border-radius: 18px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    @media screen and (max-width: 500px) {
+        margin-left: 0;
+        margin-top: 1em;
+        width: 100%;
+    }
+}
+
+.signup-login {
+    text-align: center;
+    color: #F28482;
+}
+
+
+a:link {
+    color: #84A59D;
+  }
+  
+a:hover {
+    color: #F6BD60;
+  }
