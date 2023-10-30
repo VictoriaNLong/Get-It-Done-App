@@ -35,7 +35,7 @@ const Register = () => {
         <TopBar/>
         <div className='form-container'>
             <div className='form-wrapper'>
-                <h1 className='title'>REGISTER</h1>
+                <h2 className='title'>REGISTER</h2>
                 <form className='reg-form' onSubmit={handleClick}>
                     <input
                         className='input-name'
