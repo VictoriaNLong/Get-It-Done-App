@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import moment from 'moment';
+import moment from "moment";
 
 function TaskItem({ task, deleteTask }) {
   const [isCompleted, setIsCompleted] = useState(task.isCompleted);
@@ -13,22 +13,27 @@ function TaskItem({ task, deleteTask }) {
       setIsCompleted(!isCompleted);
     } catch (err) {
       console.log(err);
-    } 
+    }
   };
 
   return (
     <tr className="task-item">
-        <div className="date">{moment(task.createdAt).format('MMM Do YY')}</div>
-        <div className="divider"></div>
-      <td className="task-name">  
-      <div className="checkbox" onChange={handleCheckboxClick} role="checkbox" aria-checked>
-        <input
-          type="checkbox"
-          id="cb"
-          checked={isCompleted}
-          tabIndex={-1}
-          readOnly
-        />
+      <div className="date">{moment(task.createdAt).format("MMM Do YY")}</div>
+      <div className="divider"></div>
+      <td className="task-name">
+        <div
+          className="checkbox"
+          onChange={handleCheckboxClick}
+          role="checkbox"
+          aria-checked
+        >
+          <input
+            type="checkbox"
+            id="cb"
+            checked={isCompleted}
+            tabIndex={-1}
+            readOnly
+          />
         </div>
         <p>{task.title}</p>
         <button
@@ -38,10 +43,9 @@ function TaskItem({ task, deleteTask }) {
         >
           Delete
         </button>
-        <br/>
-    
+        <br />
       </td>
-      <div className="status">{isCompleted ? 'Complete' : 'Incomplete'}</div>
+      <div className="status">{isCompleted ? "Complete" : "Incomplete"}</div>
     </tr>
   );
 }

@@ -38,7 +38,7 @@ function TaskList() {
 
   const deleteTask = async (id) => {
     try {
-        console.log('deleted')
+      console.log("deleted");
       await axios.delete(`/tasks/${id}`);
       setTaskList(taskList.filter((task) => task._id !== id));
     } catch (err) {

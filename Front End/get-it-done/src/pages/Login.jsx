@@ -1,6 +1,6 @@
 import React from "react";
-import { Link} from "react-router-dom";
-import './pages.css'
+import { Link } from "react-router-dom";
+import "./pages.css";
 import TopBar from "../components/TopBar";
 import axios from "axios";
 import { useNavigate } from "react-router";
@@ -16,7 +16,7 @@ const Login = () => {
         email,
         password,
       });
-      navigate('/');
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -24,35 +24,32 @@ const Login = () => {
 
   return (
     <div className="top-bar">
-        <TopBar/>
-    <div className="form-container">
-      <div className="form-wrapper">
-        <h2 className="title">LOGIN</h2>
-        <form className="login-form" onSubmit={login}>
-          <label htmlFor="email">
-          <input
-            type="email"
-            name="email"
-            placeholder="EMAIL"
-            required
-          />
-          </label>
-          <label htmlFor="password">
-          <input
-            type="password"
-            name="password"
-            placeholder="******"
-            required
-          />
-          </label>
-          <button className="login-button" type="submit">LOG IN</button>
-        </form>
+      <TopBar />
+      <div className="form-container">
+        <div className="form-wrapper">
+          <h2 className="title">LOGIN</h2>
+          <form className="login-form" onSubmit={login}>
+            <label htmlFor="email">
+              <input type="email" name="email" placeholder="EMAIL" required />
+            </label>
+            <label htmlFor="password">
+              <input
+                type="password"
+                name="password"
+                placeholder="******"
+                required
+              />
+            </label>
+            <button className="login-button" type="submit">
+              LOG IN
+            </button>
+          </form>
 
-        <div className="signup-login">
-          Don't have an account? <Link to="/register">Register</Link>
+          <div className="signup-login">
+            Don't have an account? <Link to="/register">Register</Link>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
