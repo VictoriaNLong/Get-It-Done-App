@@ -47,11 +47,17 @@ const deleteTask = async (req, res, next) => {
         if (!task) {
             return next(createError({ status: 404, message: 'Task not found' }));
     }
-        await Task.findByIdAndDelete(req.params.TaskId)
+        const check = await Task.findByIdAndDelete(req.params.taskId)
+        
+        if(!check){
+            console.log('task not found')
+        }else{
+            console.log('task found')
+        }
         return res.status(200).json('Task deleted')
     }catch(err){
         return next(err)
     }
 }
 
-module.exports = {createTask, getTasks, currentUserTasks, updateTask, deleteTask}
+module.exports = {createTask, currentUserTasks, updateTask, deleteTask}
