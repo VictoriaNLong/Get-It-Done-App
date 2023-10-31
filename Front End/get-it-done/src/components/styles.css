@@ -26,6 +26,15 @@
     }
 }
 
+.form-wrapper {
+    box-sizing: border-box;
+    width: 100vh;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
+}
+
 
 .form-input {
     background-color: #FFB4A2;
@@ -159,4 +168,9 @@ background-color: #84A59D;
     height: 2px;
     width: 50%;
     background: #F5CAC3;
+}
+
+.no-tasks {
+    text-align: center;
+    color: #F6BD60;
 }

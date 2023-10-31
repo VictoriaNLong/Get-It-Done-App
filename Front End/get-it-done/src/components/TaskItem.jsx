@@ -4,20 +4,16 @@ import moment from 'moment';
 
 function TaskItem({ task, deleteTask }) {
   const [isCompleted, setIsCompleted] = useState(task.isCompleted);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleCheckboxClick = async () => {
     try {
-      setIsLoading(true);
       await axios.put(`/tasks/${task._id}`, {
         completed: !isCompleted,
       });
       setIsCompleted(!isCompleted);
     } catch (err) {
       console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
+    } 
   };
 
   return (

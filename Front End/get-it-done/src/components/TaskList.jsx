@@ -65,7 +65,7 @@ function TaskList() {
           </tbody>
         </table>
       ) : (
-        "No Tasks found. Create New"
+        <div className="no-tasks">No Tasks found. Create New</div>
       )}
       {isAddingNew && (
         <form onSubmit={addNewTask}>
