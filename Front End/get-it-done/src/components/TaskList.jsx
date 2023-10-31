@@ -80,7 +80,7 @@ function TaskList() {
         </form>
       )}
       <button className="form-button" onClick={addNewButtonClick}>
-        ADD NEW
+        CREATE NEW
       </button>
     </div>
   );
