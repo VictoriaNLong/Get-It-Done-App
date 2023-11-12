@@ -30,3 +30,5 @@ app.listen(process.env.PORT, () => {
 
 //Endpoints
 app.use("/api", allRoutes);
+
+module.exports = app
