@@ -20,7 +20,7 @@ mongoose.connect(
 
 //middelware
 app.use(express.json());
-app.use(Cors());
+app.use(Cors({}));
 app.use(morgan("tiny"));
 app.use(cookieParser());
 
