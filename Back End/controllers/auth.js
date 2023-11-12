@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const createError = require("../utils/createError");
@@ -13,8 +13,8 @@ const register = async (req, res) => {
   }
 
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const salt = await bcryptjs.genSalt(10);
+    const hashedPassword = await bcryptjs.hash(req.body.password, salt);
 
     const newUser = new User({
       name: req.body.name,
@@ -42,7 +42,7 @@ const login = async (req, res) => {
     if (!user) {
       return res.status(404).json("no user found");
     }
-    const correctPassword = await bcrypt.compare(
+    const correctPassword = await bcryptjs.compare(
       req.body.password,
       user.password
     );
