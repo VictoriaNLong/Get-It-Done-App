@@ -10,13 +10,15 @@ const allRoutes = require("./routes/index");
 dotenv.config();
 
 //Connections
-mongoose.connect(
-  process.env.MONGO_URI,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("connected to mongo");
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.DB_CONNECTION_STRING);
+    console.log('MongoDB Connected');
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
   }
-);
+};
 
 //middelware
 app.use(express.json());
@@ -25,6 +27,7 @@ app.use(morgan("tiny"));
 app.use(cookieParser());
 
 app.listen(process.env.PORT, () => {
+  connectDB()
   console.log(`running`);
 });
 
