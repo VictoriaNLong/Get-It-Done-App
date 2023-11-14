@@ -12,7 +12,7 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     try {
-      await axios.post("/auth/login", {
+      await axios.post("https://get-it-done-app-api.onrender.com/api/auth/login", {
         email,
         password,
       });

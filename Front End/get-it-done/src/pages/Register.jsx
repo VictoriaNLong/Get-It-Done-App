@@ -15,7 +15,7 @@ const Register = () => {
       password: e.target.password.value,
     };
     try {
-      await axios.post("/auth/register", user);
+      await axios.post("https://get-it-done-app-api.onrender.com/api/auth/register", user);
       navigate("/login");
     } catch (err) {
       console.log(err);

@@ -6,7 +6,7 @@ function useAuth() {
 
   const verifyAuth = async () => {
     try {
-      const res = await axios.get("/auth/is_logged_in");
+      const res = await axios.get("https://get-it-done-app-api.onrender.com/api/auth/is_logged_in");
       return res.data;
     } catch (err) {
       console.log(err);

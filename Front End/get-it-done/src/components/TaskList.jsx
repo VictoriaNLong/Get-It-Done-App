@@ -23,7 +23,7 @@ function TaskList() {
 
   const getTasks = async () => {
     try {
-      const { data } = await axios.get("/tasks/userTasks");
+      const { data } = await axios.get("https://get-it-done-app-api.onrender.com/api/tasks/userTasks");
       setTaskList(
         data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
       );
@@ -39,7 +39,7 @@ function TaskList() {
   const deleteTask = async (id) => {
     try {
       console.log("deleted");
-      await axios.delete(`/tasks/${id}`);
+      await axios.delete(`https://get-it-done-app-api.onrender.com/api/tasks/${id}`);
       setTaskList(taskList.filter((task) => task._id !== id));
     } catch (err) {
       console.log(err);

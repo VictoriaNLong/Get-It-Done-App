@@ -7,7 +7,7 @@ function TaskItem({ task, deleteTask }) {
 
   const handleCheckboxClick = async () => {
     try {
-      await axios.put(`/tasks/${task._id}`, {
+      await axios.put(`https://get-it-done-app-api.onrender.com/api/tasks/${task._id}`, {
         completed: !isCompleted,
       });
       setIsCompleted(!isCompleted);

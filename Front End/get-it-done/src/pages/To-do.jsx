@@ -11,7 +11,7 @@ function Todo() {
 
   const getUser = async () => {
     try {
-      const { data } = await axios.get("/users/me");
+      const { data } = await axios.get("https://get-it-done-app-api.onrender.com/api/users/me");
       setUser(data);
     } catch (err) {
       console.log(err);
@@ -24,7 +24,7 @@ function Todo() {
 
   const handleLogout = async () => {
     try {
-      await axios.get("/auth/logout");
+      await axios.get("https://get-it-done-app-api.onrender.com/api/auth/logout");
       setUser(null);
       navigate("/login");
     } catch (err) {
