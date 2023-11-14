@@ -68,7 +68,7 @@ const login = async (req, res) => {
       });
   } catch (err) {
     console.log(err)
-    console.log("banana")
+    
     res.status(500).json(err);
   }
 };
@@ -79,6 +79,7 @@ const logout = (req, res) => {
 };
 
 const isLoggedIn = (req, res) => {
+  console.log(req.cookies)
   const token = req.cookies.access_token;
   if (!token) {
     return res.json(false);
