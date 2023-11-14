@@ -21,11 +21,11 @@ const connectDB = async () => {
 
 //middelware
 app.use(express.json());
-// const corsOptions ={
-//   origin: 'https://get-it-done-app-api.onrender.com',
-//   credentials:true
-// }
-// app.use(Cors(corsOptions));
+const corsOptions ={
+  origin: '*',
+  credentials:true
+}
+app.use(Cors(corsOptions));
 app.use(morgan("tiny"));
 app.use(cookieParser());
 
