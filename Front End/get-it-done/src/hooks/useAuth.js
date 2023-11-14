@@ -6,6 +6,7 @@ function useAuth() {
 
   const verifyAuth = async () => {
     try {
+      axios.defaults.withCredentials=true
       const res = await axios.get("https://get-it-done-app-api.onrender.com/api/auth/is_logged_in");
       return res.data;
     } catch (err) {
