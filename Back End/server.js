@@ -22,7 +22,7 @@ const connectDB = async () => {
 //middelware
 app.use(express.json());
 const corsOptions ={
-  origin: 'https://get-it-done-app-api.onrender.com:8989',
+  origin: 'https://get-it-done-app-client.onrender.com',
   credentials:true
 }
 app.use(Cors(corsOptions));
