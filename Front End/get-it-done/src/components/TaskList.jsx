@@ -10,7 +10,7 @@ function TaskList() {
   const addNewTask = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/tasks", {
+      const { data } = await axios.post("https://get-it-done-app-api.onrender.com/api/tasks", {
         title: newTask,
       });
       setTaskList([...taskList, { ...data }]);
