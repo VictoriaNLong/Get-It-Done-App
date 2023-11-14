@@ -39,7 +39,7 @@
     ]
   },
   "options": {
-  "allowedHosts": ["get-it-done-app-api.onrender.com"],
+  "allowedHosts": ["get-it-done-app-api.onrender.com:8989"],
   "proxy": "https://get-it-done-app-api.onrender.com/api/"
   }
 }
